@@ -52,6 +52,10 @@
 			color: green;
 		}
 
+		.errors span {
+			color: green;
+		}
+
 		.demobox {
 			font-size: 1.5em;
 			border: 0.5em solid gray;
@@ -73,12 +77,37 @@
 			return document.getElementById(id);
 		}
 
-		function button() {
-			var n = Number($('input1').value);
-			var p = Number($('input2').value);
+		function check(n, p) {
+			function isInteger (n) {
+				return (n % 2 === 0 || n % 2 === 1);
+			}
+
+			var errors = {
+				n: false,
+				p: false
+			};
+
+			errors.n = !(isInteger(n) && n > 0) ? 'n is not a positive integer' : errors.n;
+			errors.n = isNaN(n) ? 'n is not a number' : errors.n;
+			errors.n = (n === undefined) ? 'n is undefined' : errors.n;
+
+			errors.p = !(n >= p) ? 'p is greater than n' : errors.p;
+			errors.p = !(isInteger(p) && p > 0) ? 'p is not a positive integer' : errors.p;
+			errors.p = isNaN(p) ? 'p is not a number' : errors.p;
+			errors.p = (p === undefined) ? 'p is undefined' : errors.p;
+
+			return errors;
+		}
+
+		function run() {
+			var n = ($('input1').value === '') ? undefined : Number($('input1').value);
+			var p = ($('input2').value === '') ? undefined : Number($('input2').value);
 			$('arg1').innerText = n;
 			$('arg2').innerText = p;
 			$('output').innerText = JSON.stringify(randomlyPartition(n, p));
+			var errors = check(n, p);
+			$('error1').innerText = (errors.n ? 'error: ' + errors.n : '');
+			$('error2').innerText = (errors.p ? 'error: ' + errors.p : '');
 		}
 
 		function enter(event) {
@@ -90,7 +119,7 @@
 				}
 
 				if (event.target === $('input2')) {
-					button();
+					run();
 					$('input1').select();
 				}
 
@@ -118,13 +147,13 @@
 	<div class="demobox">
 		<div class="left">
 			<code>n =&nbsp;</code>
-			<input type="number" id="input1" onkeydown="enter(event);" autofocus>
+			<input type="text" id="input1" onkeydown="enter(event);" autofocus>
 
 			<br>
 
 			<code>p =&nbsp;</code>
-			<input type="number" id="input2" onkeydown="enter(event);">
-			<button onclick="button();">Run</button>
+			<input type="text" id="input2" onkeydown="enter(event);">
+			<button onclick="run();">Run</button>
 		</div>
 
 		<code>
@@ -134,6 +163,12 @@
 
 			<p id="output">(output)</p>
 		</code>
+
+		<div class="errors">
+			<span id="error1"></span>
+			<br>
+			<span id="error2"></span>
+		</div>
 	</div>
 
 	<p>
