@@ -2,7 +2,9 @@
 
 Algorithms written by me.
 
-##*demo:*
+___
+
+***demo:***
 
 [randomlyPartition](http://jdh11235.github.io/algorithms/demo/randomlyPartition.html)
 
