@@ -43,6 +43,10 @@
 			margin-top: 1.5em;
 		}
 
+		.syntax1 {
+			color: green;
+		}
+
 		.demobox {
 			font-size: 1.5em;
 			border: 0.5em solid gray;
@@ -66,7 +70,9 @@
 		function button() {
 			var n = Number($('input1').value);
 			var p = Number($('input2').value);
-			$('output').innerHTML = JSON.stringify(randomlyPartition(n, p));
+			$('arg1').innerText = n;
+			$('arg2').innerText = p;
+			$('output').innerText = JSON.stringify(randomlyPartition(n, p));
 		}
 
 		function enter(event) {
@@ -105,10 +111,18 @@
 
 	<div class="demobox">
 		<button onclick="button();">randomlyPartition</button>
-		(number: <input type="number" id="input1" onkeydown="enter(event);" autofocus>
-		partitions: <input type="number" id="input2" onkeydown="enter(event);">)
 
-		<p id="output">(output)</p>
+		<code>(number: n =</code>
+		<input type="number" id="input1" onkeydown="enter(event);" autofocus>
+		<code>partitions: p =</code>
+		<input type="number" id="input2" onkeydown="enter(event);">
+		<code>)</code>
+
+		<code>
+			<p>randomlyPartition(<span class="syntax1" id="arg1">n</span>, <span class="syntax1" id="arg2">p</span>);</p>
+
+			<p id="output">(output)</p>
+		</code>
 	</div>
 
 	<p>
