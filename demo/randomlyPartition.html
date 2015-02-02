@@ -39,6 +39,11 @@
 			font-size: 1.25em;
 		}
 
+		.left {
+			text-align: left;
+			display: inline-block;
+		}
+
 		.c {
 			margin-top: 1.5em;
 		}
@@ -110,16 +115,21 @@
 	</ul>
 
 	<div class="demobox">
-		<button onclick="button();">randomlyPartition</button>
+		<div class="left">
+			<code>n =&nbsp;</code>
+			<input type="number" id="input1" onkeydown="enter(event);" autofocus>
 
-		<code>(number: n =</code>
-		<input type="number" id="input1" onkeydown="enter(event);" autofocus>
-		<code>partitions: p =</code>
-		<input type="number" id="input2" onkeydown="enter(event);">
-		<code>)</code>
+			<br>
+
+			<code>p =&nbsp;</code>
+			<input type="number" id="input2" onkeydown="enter(event);">
+			<button onclick="button();">Run</button>
+		</div>
 
 		<code>
-			<p>randomlyPartition(<span class="syntax1" id="arg1">n</span>, <span class="syntax1" id="arg2">p</span>);</p>
+			<p>
+				randomlyPartition(<span class="syntax1" id="arg1">n</span>, <span class="syntax1" id="arg2">p</span>);
+			</p>
 
 			<p id="output">(output)</p>
 		</code>
