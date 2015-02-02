@@ -26,12 +26,12 @@ function randomlyPartition (n, p) {
 		return [split, n - split];
 	}
 
-	//test: n and p are numbers
+	//test: n and p exist and are numbers
 	if ( !(typeof n === 'number' && typeof p === 'number') ) {
 		return false;
 	}
 
-	//test: n and p are integers
+	//test: n and p are positive integers
 	if ( !(isInteger(n) && isInteger(p) && n > 0 && p > 0) ) {
 		return false;
 	}
