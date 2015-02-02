@@ -64,8 +64,16 @@
 		function enter(event) {
 			//Enter key
 			if (event.keyCode === 13) {
-				button();
-				$('input1').focus();
+
+				if (event.target === $('input1')) {
+					$('input2').select();
+				}
+
+				if (event.target === $('input2')) {
+					button();
+					$('input1').select();
+				}
+
 			}
 		}
 	</script>
@@ -89,7 +97,7 @@
 
 	<div class="demobox">
 		<button onclick="button();">randomlyPartition</button>
-		(number: <input type="number" id="input1" autofocus>
+		(number: <input type="number" id="input1" onkeydown="enter(event);" autofocus>
 		partitions: <input type="number" id="input2" onkeydown="enter(event);">)
 	
 		<p id="output">(output)</p>
