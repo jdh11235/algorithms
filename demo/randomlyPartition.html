@@ -22,13 +22,17 @@
 
 		a {
 			color: green;
+			text-decoration: none;
 		}
 
 		.inverted {
 			padding: 0.5em;
 			color: #ececec;
 			background: green;
-			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
 		}
 
 		.bigger {
@@ -99,7 +103,7 @@
 		<button onclick="button();">randomlyPartition</button>
 		(number: <input type="number" id="input1" onkeydown="enter(event);" autofocus>
 		partitions: <input type="number" id="input2" onkeydown="enter(event);">)
-	
+
 		<p id="output">(output)</p>
 	</div>
 
