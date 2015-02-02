@@ -2,8 +2,6 @@
 
 Algorithms written by me.
 
-___
-
 ***demo:***
 
 [randomlyPartition](http://jdh11235.github.io/algorithms/demo/randomlyPartition.html)
