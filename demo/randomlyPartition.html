@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>randomlyPartition algorithm demo</title>
+
+	<style>
+		body {
+			font-family: sans-serif;
+			text-align: center;
+			background: #ececec;
+			color: #2d2d2d;
+		}
+
+		a {
+			padding: 0.5em;
+			color: #ececec;
+			background: #2d2d2d;
+		}
+
+		ul {
+			text-align: left;
+			font-size: 1.25em;
+			font-family: monospace;
+		}
+
+		.demobox {
+			font-size: 1.5em;
+			border: 0.5em solid gray;
+			padding: 1em;
+		}
+
+		#output {
+			text-align: center;
+			padding: 1em;
+			background: skyblue;
+		}
+	</style>
+
+	<script src="../randomlyPartition.js"></script>
+
+	<script>
+		function $(id) {
+			return document.getElementById(id);
+		}
+
+		function button() {
+			var n = Number($('input1').value);
+			var p = Number($('input2').value);
+			$('output').innerHTML = JSON.stringify(randomlyPartition(n, p));
+		}
+	</script>
+</head>
+<body>
+
+	<h1>
+		<i>randomlyPartition</i> algorithm demo
+	</h1>
+
+	<ul>
+		<li>n: number to be partitioned</li>
+		<li>p: number of partitions</li>
+		<li>n and p must be positive integers</li>
+		<li>n must be greater than or equal to p</li>
+	</ul>
+
+	<div class="demobox">
+		<button onclick="button();">randomlyPartition</button>
+		(number: <input type="number" id="input1">
+		partitions: <input type="number" id="input2">)
+	
+		<p id="output">(output)</p>
+	</div>
+
+	<p>
+		<a href="https://github.com/jdh11235/algorithms/blob/master/randomlyPartition.js">https://github.com/jdh11235/algorithms/blob/master/randomlyPartition.js</a>
+	</p>
+
+	<p>
+		Copyright (c) 2015 Jonathan Herman. MIT License.
+	</p>
+
+</body>
+</html>
