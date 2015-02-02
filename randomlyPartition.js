@@ -27,7 +27,7 @@ function randomlyPartition (n, p) {
 	}
 
 	//test: n and p exist and are numbers
-	if ( !(typeof n === 'number' && typeof p === 'number') ) {
+	if ( !(!isNaN(n) && !isNaN(p)) ) {
 		return false;
 	}
 
