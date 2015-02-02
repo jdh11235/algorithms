@@ -60,6 +60,14 @@
 			var p = Number($('input2').value);
 			$('output').innerHTML = JSON.stringify(randomlyPartition(n, p));
 		}
+
+		function enter(event) {
+			//Enter key
+			if (event.keyCode === 13) {
+				button();
+				$('input1').focus();
+			}
+		}
 	</script>
 </head>
 <body>
@@ -81,8 +89,8 @@
 
 	<div class="demobox">
 		<button onclick="button();">randomlyPartition</button>
-		(number: <input type="number" id="input1">
-		partitions: <input type="number" id="input2">)
+		(number: <input type="number" id="input1" autofocus>
+		partitions: <input type="number" id="input2" onkeydown="enter(event);">)
 	
 		<p id="output">(output)</p>
 	</div>
