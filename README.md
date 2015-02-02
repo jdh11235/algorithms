@@ -2,9 +2,9 @@
 
 Algorithms written by me.
 
-***demo:***
+**demos:**
 
-[**randomlyPartition**](http://jdh11235.github.io/algorithms/demo/randomlyPartition.html) - Takes a number and randomly partitions it into a set of smaller numbers.
+[***randomlyPartition***](http://jdh11235.github.io/algorithms/demo/randomlyPartition.html) - Takes a number and randomly partitions it into a set of smaller numbers.
 
 ___
 
