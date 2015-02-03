@@ -73,6 +73,23 @@
 			return document.getElementById(id);
 		}
 
+		/* fix for lack of .innerText in FireFox */
+		window.setText = function (element, text) {
+			if(document.all){
+				element.innerText = text;
+			} else{
+				element.textContent = text;
+			}
+		};
+
+		window.getText = function (element) {
+			if(document.all){
+				return element.innerText;
+			} else{
+				return element.textContent;
+			}
+		}
+
 		function check(n, p) {
 			function isInteger (n) {
 				return (n % 2 === 0 || n % 2 === 1);
@@ -98,12 +115,12 @@
 		function run() {
 			var n = ($('input1').value === '') ? undefined : Number($('input1').value);
 			var p = ($('input2').value === '') ? undefined : Number($('input2').value);
-			$('arg1').innerText = n;
-			$('arg2').innerText = p;
-			$('output').innerText = JSON.stringify(randomlyPartition(n, p));
+			setText($('arg1'), n);
+			setText($('arg2'), p);
+			setText($('output'), JSON.stringify(randomlyPartition(n, p)));
 			var errors = check(n, p);
-			$('error1').innerText = (errors.n ? 'error: ' + errors.n : '');
-			$('error2').innerText = (errors.p ? 'error: ' + errors.p : '');
+			setText($('error1'), (errors.n ? 'error: ' + errors.n : ''));
+			setText($('error2'), (errors.p ? 'error: ' + errors.p : ''));
 		}
 
 		function enter(event) {
